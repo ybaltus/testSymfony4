@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 class AppTest extends TestCase
 {
     public function testTestAreWorking(){
-        $this->assertEquals(4, 2+3);
+        $this->assertEquals(4, 2+2);
     }
 
 }
