@@ -22,4 +22,14 @@ class UserRepositoryTest extends WebTestCase
 
         $this->assertEquals(10,$users);
     }
+
+    public function testCountWithAlice()
+    {
+        self::bootKernel();
+        $this->loadFixtureFiles([__DIR__.'/UserReposittoryFixtures.yaml']);
+
+        $users = self::$container->get(UserRepository::class)->count([]);
+
+        $this->assertEquals(10,$users);
+    }
 }

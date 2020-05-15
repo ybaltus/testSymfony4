@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6411382b-df80-4298-9c57-b112325e8e17" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Repository/UserReposirotyTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/.env.test" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Repository/UserReposittoryFixtures.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TestSymfony4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TestSymfony4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/framework.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AppTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AppTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Repository/UserReposirotyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Repository/UserReposirotyTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +143,14 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/liip/test-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/alice" />
+      <path value="$PROJECT_DIR$/vendor/theofidry/alice-data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
     </include_path>
   </component>
   <component name="ProjectId" id="1buLQVifQIuzjCba57ar5yRDVZ8" />
@@ -192,7 +198,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589477015046</updated>
       <workItem from="1589477016228" duration="4117000" />
-      <workItem from="1589553333507" duration="4074000" />
+      <workItem from="1589553333507" duration="4711000" />
     </task>
     <servers />
   </component>
@@ -240,10 +246,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="723" height="212" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589560342030" />
-    <state x="325" y="159" key="NewPhpClassDialog" timestamp="1589555104360">
+    <state x="325" y="159" key="NewPhpClassDialog" timestamp="1589560797771">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="325" y="159" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1589555104360" />
+    <state x="325" y="159" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1589560797771" />
     <state x="0" y="60" key="SettingsEditor" timestamp="1589480174336">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
