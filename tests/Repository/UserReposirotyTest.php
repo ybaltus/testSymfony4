@@ -26,7 +26,7 @@ class UserRepositoryTest extends WebTestCase
     public function testCountWithAlice()
     {
         self::bootKernel();
-        $this->loadFixtureFiles([__DIR__.'/UserReposittoryFixtures.yaml']);
+        $this->loadFixtureFiles([dirname(__DIR__) . '/Fixtures/UserReposittoryFixtures.yaml']);
 
         $users = self::$container->get(UserRepository::class)->count([]);
 
