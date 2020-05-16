@@ -1,0 +1,5 @@
+App\Entity\InvitationCode:
+  invitcode1:
+    code: "15932"
+    description: "Test code fixtures"
+    expire_at: <dateTime("+1 year")>
