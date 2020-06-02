@@ -5,9 +5,13 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ *
+ * @UniqueEntity("email")
  */
 class User implements UserInterface
 {
@@ -20,6 +24,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email
      */
     private $email;
 
@@ -33,6 +38,17 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Regex(
+     *     pattern="/^\d{6}$/",
+     *     match=true,
+     *     message="Your code_user must contain six numbers"
+     * )
+     * @Assert\NotBlank
+     */
+    private $code_user;
 
     public function getId(): ?int
     {
@@ -110,5 +126,17 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getCodeUser(): ?string
+    {
+        return $this->code_user;
+    }
+
+    public function setCodeUser(string $code_user): self
+    {
+        $this->code_user = $code_user;
+
+        return $this;
     }
 }

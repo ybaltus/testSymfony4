@@ -1,0 +1,5 @@
+App\Entity\user:
+  user1:
+    email: "toto1@domain.fr"
+    password: "1234"
+    code_user: "123456"
