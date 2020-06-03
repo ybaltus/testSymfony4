@@ -4,17 +4,34 @@
 namespace App\Tests\Validator;
 
 
+use App\Repository\ConfigRepository;
 use App\Validator\EmailDomain;
 use App\Validator\EmailDomainValidator;
 use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 class EmailDomainValidatorTest extends TestCase
 {
-    private function getValidator($expectedViolation = false)
+    private function getValidator($expectedViolation = false, $dbBlockedDomain=[])
     {
-        $validator = new EmailDomainValidator();
+        $repository = $this->getMockBuilder(ConfigRepository::class)->disableOriginalConstructor()->getMock();
+
+        $repository->expects($this->any())
+            ->method("getAsArray")
+            ->with('blocked_domains')
+            ->willReturn($dbBlockedDomain);
+
+
+        $validator = new EmailDomainValidator($repository);
+        $context= $this->getContext($expectedViolation);
+        $validator->initialize($context);
+        return $validator;
+    }
+
+    public function getContext($expectedViolation):ExecutionContextInterface
+    {
         $context = $this->getMockBuilder(ExecutionContextInterface::class)->getMock();
 
         if($expectedViolation)
@@ -31,8 +48,7 @@ class EmailDomainValidatorTest extends TestCase
                 ->expects($this->never())
                 ->method('buildViolation');
         }
-        $validator->initialize($context);
-        return $validator;
+        return $context;
     }
 
     public function testCatchBadDomain(){
@@ -51,4 +67,25 @@ class EmailDomainValidatorTest extends TestCase
         $this->getValidator(false)->validate('demo@gooddomamin.fr', $constraint);
 
     }
+
+    public function testBlockedDomainFromDB(){
+        $constraint = new EmailDomain([
+            'blocked' => ['baddomain.fr', 'toto.com']
+        ]);
+
+        $this->getValidator(true, ['baddbdomain.fr'])->validate('demo@baddbdomain.fr', $constraint);
+
+    }
+
+//    public function testParametersSetCorrectly()
+//    {
+//        $constraint = new EmailDomain([
+//            'blocked' => []
+//        ]);
+//
+//        self::bootKernel();
+//        $validator = self::$container->get(EmailDomainValidator::class);
+//        $validator->initialize($this->getContext(true));
+//        $validator->validate("demo@globalblocked.fr", $constraint);
+//    }
 }
