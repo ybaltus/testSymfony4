@@ -41,14 +41,15 @@ class ExceptionSubscriber implements EventSubscriberInterface
         $message = new \Swift_Message();
         $message->setFrom($this->from);
         $message->setTo($this->to);
-        $message->setBody("{$event->getRequest()->getRequestUri()}
-        
-        
-        {$event->getException()->getMessage()}
-        
-        {$event->getException()->getTraceAsString()}");
 
-//        var_dump($message->getBody());
+        $message->setBody("{$event->getRequest()->getRequestUri()}
+
+        {$event->getThrowable()->getMessage()}
+
+        {$event->getThrowable()->getTraceAsString()}
+
+        ");
+
         $this->mailer->send($message);
     }
 }

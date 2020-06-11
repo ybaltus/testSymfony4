@@ -24,10 +24,12 @@ class InvitationCodeTest extends WebTestCase
 
     private function assertAsErrorsWithValidator(InvitationCode $code, int $number=0, $testFixtureLiips=false)
     {
-        self::bootKernel();
-        $errors=self::$container->get("validator")->validate($code);
         if($testFixtureLiips)
             $this->loadFixtureFiles([dirname(__DIR__)."/Fixtures/InvitationCodeFixture.yaml"]);
+
+        self::bootKernel();
+        $errors=self::$container->get("validator")->validate($code);
+
         $messages = array();
         /**
          * @var ConstraintViolation $error
@@ -74,7 +76,6 @@ class InvitationCodeTest extends WebTestCase
     public function testInvalidDoubleCode()
     {
         $code = $this->getInvalidationCodeEntity()->setCode('15932');
-//        $this->loadFixtureFiles([dirname(__DIR__)."/Fixtures/InvitationCodeFixture.yaml"]);
         $this->assertAsErrorsWithValidator($code, 1, true);
     }
 

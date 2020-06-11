@@ -26,11 +26,11 @@ class UserEntityTest extends WebTestCase
 
     private function assertErrorsWithValidator(User $user, $number, $withLiipTestsFixture=false)
     {
-        self::bootKernel();
-        $errors = self::$container->get("validator")->validate($user);
-
         if($withLiipTestsFixture)
             $this->loadFixtureFiles([dirname(__DIR__)."/Fixtures/UserFixture.yaml"]);
+
+        self::bootKernel();
+        $errors = self::$container->get("validator")->validate($user);
 
         $messages = [];
         /**
@@ -75,5 +75,4 @@ class UserEntityTest extends WebTestCase
         $entity = $this->getUserEntity()->setCodeUser("");
         $this->assertErrorsWithValidator($entity,1);
     }
-
 }
