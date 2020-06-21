@@ -22,7 +22,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
      */
     private $to;
 
-    public function __construct(\Swift_Mailer $mailer,string $from="", string $to="")
+    public function __construct(\Swift_Mailer $mailer,string $from="default@doe.fr", string $to="default@doe.fr")
     {
         $this->mailer = $mailer;
         $this->from = $from;

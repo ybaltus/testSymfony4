@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire de contact{% endblock %}
+
+{% block body %}
+    <h1>Formulaire de contact</h1>
+    {{ form_start(form) }}
+    <div class="row col-md-6">
+        <div class="form-group col-md-12">
+            {{ form_label(form.firstname) }}
+            {{ form_widget(form.firstname) }}
+            <small>{{ form_help(form.firstname) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.firstname) }}
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            {{ form_label(form.lastname) }}
+            {{ form_widget(form.lastname) }}
+            <small>{{ form_help(form.lastname) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.lastname) }}
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            {{ form_label(form.mail) }}
+            {{ form_widget(form.mail) }}
+            <small>{{ form_help(form.mail) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.mail) }}
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            {{ form_label(form.address) }}
+            {{ form_widget(form.address) }}
+            <small>{{ form_help(form.address) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.address) }}
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            {{ form_row(form.submit) }}
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
